@@ -2,33 +2,30 @@
 
 class Sumedia_Amapn_Plugin
 {
-    public function textdomain()
+    public function init()
     {
-        //$event = new Sumedia_Base_Event(function () {
-        load_plugin_textdomain(
-            'sumedia-amapn',
-            false,
-            SUMEDIA_AMAPN_PLUGIN_NAME . '/languages/');
-        //});
-        //add_action('plugins_loaded', [$event, 'execute']);
+        $this->add_overview_plugin();
+        $this->view();
+        $this->linksparser();
+        $this->post_add_link();
+        $this->post_delete_links();
     }
 
-    public function installer()
+    public function add_overview_plugin()
     {
-        $installer = new Sumedia_Amapn_Installer;
-        register_activation_hook(__FILE__, [$installer, 'install']);
+        $view = Sumedia_Base_Registry::get_instance('view');
+        $plugins = $view->get('sumedia_base_admin_view_plugins');
+        $plugins->plugins[SUMEDIA_AMAPN_PLUGIN_NAME] = [
+            'description_template' => Suma\ds(SUMEDIA_PLUGIN_PATH . SUMEDIA_AMAPN_PLUGIN_NAME . '/admin/templates/plugin.phtml'),
+        ];
     }
 
     public function view()
     {
         $view = Sumedia_Base_Registry::get_instance('view');
-        $plugins = $view->get('sumedia_base_admin_view_plugins');
-        $plugins->plugins[SUMEDIA_AMAPN_PLUGIN_NAME] = [
-            'description_template' => SUMEDIA_PLUGIN_PATH . SUMEDIA_AMAPN_PLUGIN_NAME . ds('/admin/templates/plugin.phtml'),
-        ];
 
         if (isset($_REQUEST['page']) && $_REQUEST['page'] == 'sumedia' && isset($_REQUEST['plugin']) && $_REQUEST['plugin'] == 'amapn') {
-            $view->get('sumedia_base_admin_view_menu')->template = SUMEDIA_PLUGIN_PATH . SUMEDIA_AMAPN_PLUGIN_NAME . ds('/admin/templates/config.phtml');
+            $view->get('sumedia_base_admin_view_menu')->template = Suma\ds(SUMEDIA_PLUGIN_PATH . SUMEDIA_AMAPN_PLUGIN_NAME . '/admin/templates/config.phtml');
 
             $heading = $view->get('sumedia_base_admin_view_heading');
             $heading->title = __('Amazon Partnernet');
@@ -88,6 +85,7 @@ class Sumedia_Amapn_Plugin
 
     public function post_delete_links()
     {
+        global $wpdb;
         if (isset($_GET['plugin']) && $_GET['plugin'] = 'amapn'
                 && isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['_wpnonce'])) {
             if (wp_verify_nonce($_POST['_wpnonce'], 'bulk-plugins_page_sumedia')) {

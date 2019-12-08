@@ -13,7 +13,7 @@
  * Description: Use Amazon Partnernet Widgets with non-tracking data privacy
  * Version:     0.1.0
  * Requires at least: 5.3 (nothing else tested yet)
- * Requires PHP: 5.3.2 (not tested, could work)
+ * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
  * Author URI:  https://www.sumedia-webdesign.de
  * License:     GPL v3
@@ -44,37 +44,39 @@ if (!function_exists( 'add_filter')) {
     exit();
 }
 
-add_action('plugins_loaded', 'sumedia_amapn_initialize', 10);
+if (!defined('SUMEDIA_BASE_VERSION')) {
+    add_action('admin_notices', 'sumedia_amapn_missing_base');
+    function sumedia_amapn_missing_base()
+    {
+        return '<div id="message" class="error fade"><p>' . __('In order to use Sumedia Plugins you need to install Sumedia Base Plugin (sumedia-base).') . '</p></div>';
+    }
+}
 
-function sumedia_amapn_initialize()
+define('SUMEDIA_AMAPN_VERSION', '0.1.0');
+define('SUMEDIA_AMAPN_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
+
+require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/class-installer.php'));
+$installer = new Sumedia_Amapn_Installer;
+register_activation_hook(__FILE__, [$installer, 'install']);
+
+add_action('plugins_loaded', 'sumedia_amapn_textdomain');
+function sumedia_amapn_textdomain()
 {
-    if (!defined('SUMEDIA_BASE_VERSION')) {
-        if (!function_exists('sumedia_base_plugin_missing_message')) {
-            function sumedia_base_plugin_missing_message()
-            {
-                return print '<div id="message" class="error fade"><p>' . __('In order to use Sumedia Plugins you need to install Sumedia Base Plugin (sumedia-base).') . '</p></div>';
-            }
-            add_action('admin_notices', 'sumedia_base_plugin_missing_messsage');
-        }
-    } else {
-        if (defined('SUMEDIA_AMAPN_VERSION')) {
-            return;
-        }
+    load_plugin_textdomain(
+        'sumedia-amapn',
+        false,
+        SUMEDIA_AMAPN_PLUGIN_NAME . DIRECTORY_SEPARATOR . 'languages');
+}
 
-        define('SUMEDIA_AMAPN_VERSION', '0.1.0');
-        define('SUMEDIA_AMAPN_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
-
+add_action('init', 'sumedia_amapn_init', 10);
+function sumedia_amapn_init()
+{
+    if (defined('SUMEDIA_BASE_VERSION')) {
         $autoloader = Sumedia_Base_Autoloader::get_instance();
         $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, 'inc');
         $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, 'view');
 
         $plugin = new Sumedia_Amapn_Plugin();
-        $plugin->textdomain();
-        $plugin->installer();
-        $plugin->view();
-        $plugin->linksparser();
-
-        $plugin->post_add_link();
-        $plugin->post_delete_links();
+        $plugin->init();
     }
 }

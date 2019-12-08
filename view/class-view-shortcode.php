@@ -13,7 +13,7 @@ class Sumedia_Amapn_View_Shortcode extends Sumedia_Base_View
 
     public function __construct()
     {
-        $this->template = SUMEDIA_PLUGIN_PATH . SUMEDIA_AMAPN_PLUGIN_NAME . '/templates/shortcode.phtml';
+        $this->template = Suma\ds(SUMEDIA_PLUGIN_PATH . SUMEDIA_AMAPN_PLUGIN_NAME . '/templates/shortcode.phtml');
     }
 
     public function fetch_by_uniqueid($uniqueid)

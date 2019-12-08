@@ -1,0 +1,125 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sumedia Amazon Partnernet\n"
+"POT-Creation-Date: 2019-12-08 21:57+0100\n"
+"PO-Revision-Date: 2019-12-08 22:01+0100\n"
+"Last-Translator: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
+"Language-Team: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: sumedia-amapn.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: inc/class-linklist-table.php:11
+msgid "ID"
+msgstr ""
+
+#: inc/class-linklist-table.php:12
+msgid "WordPress Code"
+msgstr ""
+
+#: inc/class-linklist-table.php:13
+msgid "Unique ID"
+msgstr ""
+
+#: inc/class-linklist-table.php:14 admin/templates/config.phtml:41
+msgid "Link"
+msgstr ""
+
+#: inc/class-linklist-table.php:15
+msgid "Refresh<br />after hours"
+msgstr "Reparse<br />nach Stunden"
+
+#: inc/class-linklist-table.php:16
+msgid "Hours since<br />last parse"
+msgstr "Stunden seit<br />letztem Parsing"
+
+#: inc/class-linklist-table.php:58
+msgid "Open link (none tracking)"
+msgstr "Öffne Link (ohne Tracking)"
+
+#: inc/class-linklist-table.php:81
+msgid "Delete"
+msgstr "Löschen"
+
+#: inc/class-plugin.php:31 admin/templates/plugin.phtml:10
+msgid "Amazon Partnernet"
+msgstr ""
+
+#: inc/class-plugin.php:32 admin/templates/plugin.phtml:24
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: sumedia-amapn.php:51
+msgid ""
+"In order to use Sumedia Plugins you need to install Sumedia Base Plugin "
+"(sumedia-base)."
+msgstr ""
+"Um Sumedia Plugins zu verwenden benötigen Sie das Sumedia Base Plugin "
+"(sumedia-base)"
+
+#: admin/templates/config.phtml:18 admin/templates/config.phtml:22
+msgid "Amazon Partnernet Links"
+msgstr ""
+
+#: admin/templates/config.phtml:23
+msgid "Create Link"
+msgstr "Link erstellen"
+
+#: admin/templates/config.phtml:49
+msgid "Refresh after hours"
+msgstr "Reparse nach Stunden"
+
+#: admin/templates/config.phtml:52
+msgid "hours"
+msgstr "Stunden"
+
+#: admin/templates/config.phtml:58
+msgid "Save and parse"
+msgstr "Speichern und parsen"
+
+#: admin/templates/plugin.phtml:16
+msgid ""
+"As Amazon Partnernet is a data privacy issue and explicitly tracks the "
+"visitor this plugin\n"
+"                will provide a smart way to solve the advertisment on your "
+"page using Partnernet."
+msgstr ""
+"Das Amazon Partnernet stellt Bild, Text und Preisinformationen nur als "
+"IFRAME zur Verfügung, was eine Frage des Datenschutzes ist.\n"
+"Dieses Plugin bietet einen smarten Weg um dieses Problem zu lösen."
+
+#: templates/shortcode.phtml:26
+msgid "Buy now"
+msgstr "Kaufen"
+
+#. Plugin Name of the plugin/theme
+msgid "Sumedia Amazon Partnernet"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Use Amazon Partnernet Widgets with non-tracking data privacy"
+msgstr "Verwende Amazon Partnernet Widgets ohne Tracking."
+
+#. Author of the plugin/theme
+msgid "Sven Ullmann"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.sumedia-webdesign.de"
+msgstr ""
