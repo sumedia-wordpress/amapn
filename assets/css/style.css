@@ -1,0 +1,31 @@
+#suma-amapn-add-link *,
+#suma-amapn-parse-links * {
+    vertical-align:baseline;
+}
+
+#suma-amapn-parse-links-byhour {
+    margin-left:10px;
+}
+
+#suma-amapn-parse-links input[type="button"] {
+    margin-left:10px;
+}
+
+.suma-amapn-linklist-preview {
+    margin-top:10px;
+}
+
+.suma-amapn-linklist-image {
+    max-width:64px;
+    margin:0 10px 10px 0;
+    float:left;
+}
+
+.suma-wrap #wpcode {
+    width:250px;
+}
+
+.suma-wrap #date_created,
+.suma-wrap #refresh_after_hours {
+    width:80px;
+}

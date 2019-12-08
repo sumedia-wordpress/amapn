@@ -1,0 +1,30 @@
+<?php
+
+if (!defined('SUMEDIA_BASE_VERSION')) {
+    header( 'Status: 403 Forbidden' );
+    header( 'HTTP/1.1 403 Forbidden' );
+    exit();
+}
+
+$shortcode = $this->get('sumedia_amapn_view_shortcode');
+
+?>
+<?php if ($shortcode->link) : ?>
+    <div class="sumedia-amapn-link">
+        <div class="sumedia-amapn-link-image">
+            <a href="<?php echo esc_attr($shortcode->link); ?>" target="_blank">
+                <img src="<?php echo esc_attr($shortcode->imageurl); ?>" alt="<?php echo esc_attr(substr($shortcode->title,0, 30)); ?>" />
+            </a>
+        </div>
+        <div class="sumedia-amapn-link-title">
+            <a href="<?php echo esc_attr($shortcode->link); ?>" target="_blank">
+                <p><?php echo esc_html($shortcode->title); ?></p>
+            </a>
+        </div>
+        <div class="sumedia-amapn-link-price">
+            <a href="<?php echo esc_attr($shortcode->link); ?>" target="_blank">
+                <p><?php echo __('Buy now'); ?> <?php echo esc_html($shortcode->price); ?></p>
+            </a>
+        </div>
+    </div>
+<?php endif; ?>

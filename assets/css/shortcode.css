@@ -1,0 +1,41 @@
+.sumedia-amapn-link {
+    width:126px !important;
+    max-width:initial !important;
+    padding:10px;
+    border:1px solid #ccc;
+    borde-radius:2px;
+}
+
+.sumedia-amapn-link a {
+    color:inherit;
+    text-decoration:none;
+}
+
+.sumedia-amapn-link p {
+    padding:0;
+    margin:0;
+    font-size:initial;
+}
+
+.sumedia-amapn-link-image {
+    height:126px;
+    overflow:hidden;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.sumedia-amapn-link-image img {
+    height:100%;
+    display:inline-block;
+}
+
+.sumedia-amapn-link-title {
+    height:126px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.sumedia-amapn-link-price {
+    font-weight:bold;
+    text-align:right;
+}

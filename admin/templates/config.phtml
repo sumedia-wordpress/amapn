@@ -1,0 +1,88 @@
+<?php
+
+if (!defined('SUMEDIA_BASE_VERSION')) {
+    header( 'Status: 403 Forbidden' );
+    header( 'HTTP/1.1 403 Forbidden' );
+    exit();
+}
+
+$linklist_table = new Sumedia_Amapn_Linklist_Table();
+$heading = $this->get('sumedia_base_admin_view_heading');
+
+?>
+<div class="wrap suma-wrap">
+
+    <div class="suma-content">
+        <div class="suma-heading">
+            <img src="<?php echo SUMEDIA_PLUGIN_URL . 'sumedia-base/assets/images/kolibri-logo.png'; ?>" alt="Sumedia" />
+            <h1><?php echo __('Amazon Partnernet Links', 'sumedia-amapn'); ?></h1>
+        </div>
+    </div>
+    <div class="nav-tab-wrapper">
+        <div data-id="linklist" class="nav-tab nav-tab-active"><?php echo __('Amazon Partnernet Links', 'sumedia-amapn'); ?></div>
+        <div data-id="newlink" class="nav-tab"><?php echo __('Create Link', 'sumedia-amapn'); ?></div>
+    </div>
+    <div class="suma-content">
+
+        <div data-id="linklist" class="tab-content tab-content-active">
+            <form class="suma-form" name="suma-amapn-linklist-form" action="<?php echo admin_url('admin.php?page=sumedia&plugin=amapn'); ?>" method="post">
+                <?php
+                    $linklist_table->prepare_items();
+                    $linklist_table->display();
+                ?>
+            </form>
+        </div>
+        <div data-id="newlink" class="tab-content">
+            <form class="suma-form" id="suma-amapn-add-link" name="suma-amapn-add-link" action="<?php echo admin_url('admin.php?page=sumedia&plugin=amapn&action=add_link'); ?>" method="post">
+                <fieldset>
+                    <input type="hidden" name="add_link_nonce" value="<?php echo wp_create_nonce('sumedia-amapn-add-link'); ?>" />
+                    <div class="suma-form-option">
+                        <div class="suma-form-label">
+                            <label><?php echo __('Link', 'sumedia-amapn'); ?>:</label>
+                        </div>
+                        <div class="suma-form-input">
+                            <input type="text" name="link" size="64" />
+                        </div>
+                    </div>
+                    <div class="suma-form-option">
+                        <div class="suma-form-label">
+                            <label><?php echo __('Refresh after hours', 'sumedia-amapn'); ?></label>
+                        </div>
+                        <div class="suma-form-input">
+                            <input type="text" name="refresh_after_hours" size="2" value="1" /> <?php echo __('hours', 'sumedia-amapn'); ?>
+                        </div>
+                    </div>
+                    <div class="suma-form-option">
+                        <div class="suma-form-label">&nbsp;</div>
+                        <div class="suma-form-input">
+                            <input type="submit" class="button" name="submit" value="<?php echo __('Save and parse', 'sumedia-amapn'); ?>" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function($){
+
+        $(document).ready(function(){
+
+            $('.nav-tab').each(function(){
+                $(this).click(function(){
+                    $('.nav-tab').each(function(){
+                        $(this).removeClass('nav-tab-active');
+                    });
+                    $(this).addClass('nav-tab-active');
+
+                    $('.tab-content').each(function(){
+                        $(this).removeClass('tab-content-active');
+                    });
+                    let dataid = $(this).attr('data-id');
+                    $('.tab-content[data-id="' + dataid + '"]').addClass('tab-content-active');
+                });
+            });
+        });
+
+    }(jQuery));
+</script>
