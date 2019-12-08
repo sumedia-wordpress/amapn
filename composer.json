@@ -1,0 +1,16 @@
+{
+    "name": "sumedia-wordpress/amapn",
+    "description": "Amazon Partnernet privacy protecting implementation",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Sven Ullmann",
+            "email": "sumedia-wordpress@sumedia-webdesign.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "sumedia-wordpress/base": "master"
+    }
+}
