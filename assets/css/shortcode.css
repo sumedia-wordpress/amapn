@@ -2,19 +2,33 @@
     width:126px !important;
     max-width:initial !important;
     padding:10px;
-    border:1px solid #ccc;
+    border:1px solid #bbb;
+    border-top:2px solid #fc0;
     borde-radius:2px;
+    background:#f9f9f9;
 }
 
 .sumedia-amapn-link a {
-    color:inherit;
+    color:#222;
     text-decoration:none;
+    font-size:14px;
 }
 
 .sumedia-amapn-link p {
     padding:0;
     margin:0;
-    font-size:initial;
+}
+
+.sumedia-amapn-link-ad {
+    font-size:10px;
+    margin-top:-24px;
+    margin-bottom:5px;
+    text-align:center;
+    overflow:hidden;
+}
+
+.sumedia-amapn-link-amazon-logo {
+    margin-bottom:5px;
 }
 
 .sumedia-amapn-link-image {
@@ -22,6 +36,7 @@
     overflow:hidden;
     text-align:center;
     margin-bottom:10px;
+    padding:5px 0;
 }
 
 .sumedia-amapn-link-image img {
@@ -30,12 +45,48 @@
 }
 
 .sumedia-amapn-link-title {
-    height:126px;
+    height:40px;
     overflow:hidden;
     text-overflow:ellipsis;
 }
 
 .sumedia-amapn-link-price {
     font-weight:bold;
-    text-align:right;
+    border:1px solid #bbb;
+    margin-top:5px;
+}
+
+.sumedia-amapn-link-price p {
+    font-weight:bold;
+    text-align:center;
+    margin-top:2px;
+}
+
+.sumedia-amapn-link-link {
+    border-top: 1px solid #bbb;
+    margin: 5px -11px -11px -11px;
+    padding: 3px;
+    background:linear-gradient(#fa0, #f90);
+    height:33px;
+}
+
+.sumedia-amapn-link-link:after {
+    content:'';
+    display:table;
+    height:0;
+    clear:both;
+}
+
+.sumedia-amapn-link-link img {
+    float:left;
+}
+
+.sumedia-amapn-link-link p {
+    font-size:14px;
+    font-weight:bold;
+    display:inline-block;
+    margin: 2px 0 0 10px;
+    float:left;
+    width:calc(100% - 60px);
+    height:100%;
 }

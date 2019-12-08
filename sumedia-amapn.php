@@ -11,7 +11,7 @@
  * Plugin Name: Sumedia Amazon Partnernet
  * Plugin URI:  /
  * Description: Use Amazon Partnernet Widgets with non-tracking data privacy
- * Version:     0.1.0
+ * Version:     0.1.1
  * Requires at least: 5.3 (nothing else tested yet)
  * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
@@ -52,7 +52,7 @@ if (!defined('SUMEDIA_BASE_VERSION')) {
     }
 }
 
-define('SUMEDIA_AMAPN_VERSION', '0.1.0');
+define('SUMEDIA_AMAPN_VERSION', '0.1.1');
 define('SUMEDIA_AMAPN_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
 
 require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/class-installer.php'));

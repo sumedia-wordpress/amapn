@@ -86,7 +86,7 @@ class Sumedia_Amapn_Plugin
     public function post_delete_links()
     {
         global $wpdb;
-        if (isset($_GET['plugin']) && $_GET['plugin'] = 'amapn'
+        if (isset($_GET['plugin']) && $_GET['plugin'] == 'amapn'
                 && isset($_POST['action']) && $_POST['action'] == 'delete' && isset($_POST['_wpnonce'])) {
             if (wp_verify_nonce($_POST['_wpnonce'], 'bulk-plugins_page_sumedia')) {
                 $table_name = $wpdb->prefix . 'sumedia_amapn_links';
