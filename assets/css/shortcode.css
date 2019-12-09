@@ -1,6 +1,6 @@
 .sumedia-amapn-link {
-    width:126px !important;
-    max-width:initial !important;
+    width:126px;
+    max-width:126px;
     padding:10px;
     border:1px solid #bbb;
     border-top:2px solid #fc0;
@@ -89,6 +89,5 @@
     display:inline-block;
     margin: 2px 0 0 10px;
     float:left;
-    width:calc(100% - 60px);
     height:100%;
 }
