@@ -8,18 +8,18 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 or higher
  *
  * @wordpress-plugin
- * Plugin Name: Sumedia AmaPn
- * Plugin URI:  /
- * Description: Use Amazon Partnernet Widgets with non-tracking data privacy
- * Version:     0.1.1
+ * Plugin Name: sumedia-amapn
+ * Plugin URI:  https://github.com/sumedia-wordpress/amapn
+ * Description: Use Amazon Partnernet Links with non-tracking data privacy
+ * Version:     0.1.2
  * Requires at least: 5.3 (nothing else tested yet)
  * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
  * Author URI:  https://www.sumedia-webdesign.de
- * License:     GPL v3
- * Text Domain: sumedia-amazon-partnernet
+ * License:     GPL-3.0-or-later
+ * Text Domain: sumedia-amapn
  * Domain Path: /languages/
- * Bug Reporting: /
+ * Bug Reporting: https://github.com/sumedia-wordpress/amapn/issues
  *
  * WC requires at least: 3.0
  * WC tested up to: 3.8
