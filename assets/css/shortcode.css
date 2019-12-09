@@ -6,6 +6,7 @@
     border-top:2px solid #fc0;
     borde-radius:2px;
     background:#f9f9f9;
+    line-height:1.2em;
 }
 
 .sumedia-amapn-link a {
@@ -21,14 +22,15 @@
 
 .sumedia-amapn-link-ad {
     font-size:10px;
-    margin-top:-24px;
-    margin-bottom:5px;
+    margin-top:-32px;
+    margin-bottom:8px;
     text-align:center;
     overflow:hidden;
 }
 
 .sumedia-amapn-link-amazon-logo {
     margin-bottom:5px;
+    text-align:center;
 }
 
 .sumedia-amapn-link-image {
