@@ -11,7 +11,7 @@
  * Plugin Name: sumedia-amapn
  * Plugin URI:  https://github.com/sumedia-wordpress/amapn
  * Description: Use Amazon Partnernet Links with non-tracking data privacy
- * Version:     0.1.2
+ * Version:     0.2.0
  * Requires at least: 5.3 (nothing else tested yet)
  * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
@@ -44,34 +44,23 @@ if (!function_exists( 'add_filter')) {
     exit();
 }
 
-require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/vendor/autoload.php'));
+require_once(__DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
 require_once(__DIR__ . DIRECTORY_SEPARATOR . 'sumedia-base.php');
 
-define('SUMEDIA_AMAPN_VERSION', '0.1.1');
-define('SUMEDIA_AMAPN_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
+if (defined('SUMEDIA_BASE_VERSION')) {
 
-require_once(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/inc/class-installer.php'));
-$installer = new Sumedia_Amapn_Installer;
-register_activation_hook(__FILE__, [$installer, 'install']);
+    define('SUMEDIA_AMAPN_VERSION', '0.2.0');
+    define('SUMEDIA_AMAPN_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
 
-add_action('plugins_loaded', 'sumedia_amapn_textdomain');
-function sumedia_amapn_textdomain()
-{
-    load_plugin_textdomain(
-        'sumedia-amapn',
-        false,
-        SUMEDIA_AMAPN_PLUGIN_NAME . DIRECTORY_SEPARATOR . 'languages');
-}
+    $autoloader = Sumedia_Base_Autoloader::get_instance();
+    $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, 'inc');
+    $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, 'view');
+    $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, Suma\ds('admin/view'));
+    $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, Suma\ds('admin/form'));
+    $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, Suma\ds('admin/table'));
+    $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, Suma\ds('admin/controller'));
 
-add_action('init', 'sumedia_amapn_init', 10);
-function sumedia_amapn_init()
-{
-    if (defined('SUMEDIA_BASE_VERSION')) {
-        $autoloader = Sumedia_Base_Autoloader::get_instance();
-        $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, 'inc');
-        $autoloader->register_autoload_dir(SUMEDIA_AMAPN_PLUGIN_NAME, 'view');
-
-        $plugin = new Sumedia_Amapn_Plugin();
-        $plugin->init();
-    }
+    $plugin = new Sumedia_Amapn_Plugin();
+    register_activation_hook(__FILE__, [$plugin, 'install']);
+    add_action('plugins_loaded', [$plugin, 'init'], 20);
 }

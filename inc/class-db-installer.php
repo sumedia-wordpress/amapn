@@ -2,35 +2,40 @@
 
 require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-class Sumedia_Amapn_Installer
+class Sumedia_Amapn_Db_Installer
 {
     /**
      * @var string
      */
-    protected $currentVersion;
+    protected $current_version;
 
     /**
      * @var string
      */
-    protected $optionName = 'sumedia_amapn_version';
+    protected $option_name;
 
     /**
      * @var string
      */
-    protected $table_name = 'sumedia_amapn_links';
+    protected $table_name;
 
     /**
      * Sumedia_Amapn_Installer constructor.
      */
     public function __construct()
     {
-        $this->currentVersion = SUMEDIA_AMAPN_VERSION;
+        $this->current_version = SUMEDIA_AMAPN_VERSION;
+        $this->option_name = str_replace('-', '_', SUMEDIA_GFONT_PLUGIN_NAME) . '_version';
+        $this->table_name = str_replace('-', '_', SUMEDIA_GFONT_PLUGIN_NAME) . '_fonts';
     }
 
     public function install()
     {
-        $this->install_link_table();
-        add_option($this->optionName, $this->currentVersion);
+        $installed_version = get_option($this->option_name);
+        if (!$installed_version || version_compare($installed_version, $this->current_version, '<')) {
+            $this->install_link_table();
+            add_option($this->option_name, $this->current_version);
+        }
     }
 
     protected function install_link_table()

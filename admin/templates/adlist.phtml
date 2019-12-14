@@ -1,0 +1,23 @@
+<?php
+
+if (!defined('SUMEDIA_BASE_VERSION')) {
+    header( 'Status: 403 Forbidden' );
+    header( 'HTTP/1.1 403 Forbidden' );
+    exit();
+}
+
+$adlist_table = new Sumedia_Amapn_Admin_Table_Adlist();
+
+?>
+
+<div class="suma-content">
+    <h1 class="wp-heading-inline"><?php echo __('Adlist', SUMEDIA_AMAPN_PLUGIN_NAME); ?></h1>
+    <a href="<?php echo admin_url('admin.php?page=sumedia&plugin=' . SUMEDIA_AMAPN_PLUGIN_NAME . '&action=new'); ?>" class="page-title-action"><?php echo __('Create new', SUMEDIA_AMAPN_PLUGIN_NAME); ?></a>
+    <form class="suma-form" name="suma-amapn-adlist-form" action="<?php echo admin_url('admin.php?page=sumedia&plugin=' . SUMEDIA_AMAPN_PLUGIN_NAME . '&action=adlist'); ?>" method="post">
+        <?php
+            $adlist_table->prepare_items();
+            $adlist_table->search_box(__('Search', SUMEDIA_AMAPN_PLUGIN_NAME), 'search');
+            $adlist_table->display();
+        ?>
+    </form>
+</div>

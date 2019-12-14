@@ -1,0 +1,38 @@
+<?php
+
+if (!defined('SUMEDIA_BASE_VERSION')) {
+    header( 'Status: 403 Forbidden' );
+    header( 'HTTP/1.1 403 Forbidden' );
+    exit();
+}
+
+?>
+<div class="suma-content">
+    <form class="suma-form" id="suma-amapn-add-link" name="suma-amapn-add-link" action="<?php echo admin_url('admin.php?page=sumedia&plugin=' . SUMEDIA_AMAPN_PLUGIN_NAME . '&action=new'); ?>" method="post">
+        <fieldset>
+            <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce(); ?>" />
+            <div class="suma-form-option">
+                <div class="suma-form-label">
+                    <label><?php echo esc_html(__('Link', SUMEDIA_AMAPN_PLUGIN_NAME)); ?>:</label>
+                </div>
+                <div class="suma-form-input">
+                    <input type="text" name="link" size="64" />
+                </div>
+            </div>
+            <div class="suma-form-option">
+                <div class="suma-form-label">
+                    <label><?php echo esc_html(__('Refresh after hours', SUMEDIA_AMAPN_PLUGIN_NAME)); ?></label>
+                </div>
+                <div class="suma-form-input">
+                    <input type="text" name="refresh_after_hours" size="2" value="1" /> <?php echo esc_html(__('hours', SUMEDIA_AMAPN_PLUGIN_NAME)); ?>
+                </div>
+            </div>
+            <div class="suma-form-option">
+                <div class="suma-form-label">&nbsp;</div>
+                <div class="suma-form-input">
+                    <input type="submit" class="button" name="submit" value="<?php echo esc_attr(__('Save and parse', SUMEDIA_AMAPN_PLUGIN_NAME)); ?>" />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

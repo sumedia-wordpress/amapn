@@ -7,21 +7,10 @@ if (!defined('SUMEDIA_BASE_VERSION')) {
 }
 
 ?>
-<h3><?php echo esc_html(__('Amazon Partnernet', 'sumedia-amapn')); ?> <small><?php echo SUMEDIA_AMAPN_VERSION; ?></small></h3>
-<small>sumedia-amapn</small>
-<div class="sumedia-overview-plugin">
-    <div class="sumedia-overview-plugin-description">
-        <p>
-            <?php
-            echo __('As Amazon Partnernet is a data privacy issue and explicitly tracks the visitor this plugin
-                will provide a smart way to solve the advertisment on your page using Partnernet.',
-                'sumedia-amapn');
-            ?>
-        </p>
-    </div>
-    <div class="sumedia-overview-plugin-actions">
-        <p>
-            <a href="<?php echo admin_url('admin.php?page=sumedia&plugin=amapn'); ?>"><?php echo __('Configuration', 'sumedia-amapn'); ?></a>
-        </p>
-    </div>
-</div>
+<p>
+    <?php
+    echo nl2br(esc_html(__('As Amazon Partnernet is a data privacy issue and explicitly tracks the visitor this plugin
+        will provide a smart way to solve the advertisment on your page using Partnernet.',
+        'sumedia-amapn')));
+    ?>
+</p>

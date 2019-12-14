@@ -1,6 +1,6 @@
 <?php
 
-class Sumedia_Amapn_Linklist_Table extends WP_List_Table
+class Sumedia_Amapn_Admin_Table_Adlist extends WP_List_Table
 {
     var $_table_name = 'sumedia_amapn_links';
 
@@ -10,10 +10,9 @@ class Sumedia_Amapn_Linklist_Table extends WP_List_Table
             'cb' => '<input type="checkbox" />',
             'id' => __('ID'),
             'wpcode' => __('WordPress Code', 'sumedia-amapn'),
-            'uniqueid' => __('Unique ID', 'sumedia-amapn'),
             'link' => __('Link', 'sumedia-amapn'),
-            'refresh_after_hours' => __('Refresh<br />after hours', 'sumedia-amapn'),
-            'date_created' => __('Hours since<br />last parse', 'sumedia-amapn')
+            'refresh_after_hours' => __('Refresh after hours', 'sumedia-amapn'),
+            'date_created' => __('Hours since last parse', 'sumedia-amapn')
         );
     }
 
@@ -26,20 +25,16 @@ class Sumedia_Amapn_Linklist_Table extends WP_List_Table
     {
         switch ($column_name) {
             case 'id':
-            case 'uniqueid':
             case 'link':
             case 'refresh_after_hours':
             case 'date_created':
                 return $item[$column_name];
-            default:
-                return print_r($item, true);
         }
     }
 
     function column_cb($item)
     {
-        $checkbox = '<input type="hidden" name="ids[' . $item['id'] . ']" value="' . $item['id'] . '" />';
-        $checkbox .= '<input type="checkbox" name="delete[' . $item['id'] . ']" value="' . $item['id'] . '" />';
+        $checkbox = '<input type="checkbox" name="ids[' . $item['id'] . ']" value="' . $item['id'] . '" />';
         return $checkbox;
     }
 
@@ -63,8 +58,7 @@ class Sumedia_Amapn_Linklist_Table extends WP_List_Table
         $uniqueid = $item['uniqueid'];
         $content = '[sumedia_amapn_link id="' . $uniqueid . '"]';
 
-        $registry = Sumedia_Base_Registry::get_instance();
-        $parser = $registry->get('sumedia_amapn_linkparser');
+        $parser = new Sumedia_Amapn_Linkparser();
         $data = $parser->get_template_data($item['link']);
 
         $content .= '<div class="suma-amapn-linklist-preview">';
@@ -84,12 +78,10 @@ class Sumedia_Amapn_Linklist_Table extends WP_List_Table
 
     function prepare_items()
     {
-        global $wpdb, $_wp_column_headers;
-
-        $screen = get_current_screen();
+        global $wpdb;
 
         $columns = $this->get_columns();
-        $hidden = array('id', 'uniqueid');
+        $hidden = array('id');
         $sortable = $this->get_sortable_columns();
 
         $this->_column_headers = array(
@@ -98,21 +90,29 @@ class Sumedia_Amapn_Linklist_Table extends WP_List_Table
             $sortable
         );
 
-        $table_name = $wpdb->prefix . $this->_table_name;
-        $query = "SELECT * FROM `" . $table_name . "`";
-        $this->items = $wpdb->get_results($query, ARRAY_A);
-
-        usort($this->items, function($a, $b){
-            $orderby = isset($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'id';
-            $order = isset($_REQUEST['order']) && $_REQUEST['order'] == 'DESC' ? 'DESC' : 'ASC';
-            $result = strcmp($a[$orderby], $b[$orderby]);
-            return ($order === 'ASC' ? $result : -$result);
-        });
-
-        $per_page = 10;
+        $per_page = 20;
         $current_page = $this->get_pagenum();
-        $total_items = count($this->items);
-        $this->items = array_slice($this->items, (($current_page-1) * $per_page), $per_page);
+
+        $table_name = $wpdb->prefix . $this->_table_name;
+        $query = "SELECT COUNT(`id`) AS item_count FROM `" . $table_name . "`";
+        $row = $wpdb->get_row($query, ARRAY_A);
+        $total_items = $row['item_count'];
+
+        $query = "SELECT * FROM `" . $table_name . "`";
+        if (isset($_REQUEST['s'])) {
+            $s = $_REQUEST['s'];
+            $query .= " WHERE `link` LIKE \"" . $wpdb->_real_escape('%' . $s . '%') . "\"";
+            $query .= " OR `link` LIKE \"" . $wpdb->_real_escape('%' . $s . '%') . "\"";
+        }
+        if (isset($_REQUEST['orderby'])) {
+            $query .= " ORDER BY " . $wpdb->_real_escape($_REQUEST['orderby']);
+        }
+        if (isset($_REQUEST['order'])) {
+            $query .= " " . ($_REQUEST['order'] == 'desc' ? 'DESC' : 'ASC');
+        }
+        $query .= " LIMIT " . $per_page . " OFFSET " . (((int) $current_page-1) * $per_page);
+
+        $this->items = $wpdb->get_results($query, ARRAY_A);
 
         $this->set_pagination_args(array(
             'total_items' => $total_items,

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sumedia-amapn\n"
-"POT-Creation-Date: 2019-12-09 06:10+0100\n"
-"PO-Revision-Date: 2019-12-09 06:11+0100\n"
+"POT-Creation-Date: 2019-12-14 15:36+0100\n"
+"PO-Revision-Date: 2019-12-14 15:38+0100\n"
 "Last-Translator: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language-Team: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language: de_DE\n"
@@ -22,76 +22,121 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
-#: inc/class-linklist-table.php:11
-msgid "ID"
-msgstr ""
-
-#: inc/class-linklist-table.php:12
-msgid "WordPress Code"
-msgstr ""
-
-#: inc/class-linklist-table.php:13
-msgid "Unique ID"
-msgstr ""
-
-#: inc/class-linklist-table.php:14 admin/templates/config.phtml:41
-msgid "Link"
-msgstr ""
-
-#: inc/class-linklist-table.php:15
-msgid "Refresh<br />after hours"
-msgstr "Reparse<br />nach Stunden"
-
-#: inc/class-linklist-table.php:16
-msgid "Hours since<br />last parse"
-msgstr "Stunden seit<br />letztem Parsing"
-
-#: inc/class-linklist-table.php:58
-msgid "Open link (none tracking)"
-msgstr "Öffne Link (ohne Tracking)"
-
-#: inc/class-linklist-table.php:81
-msgid "Delete"
-msgstr "Löschen"
-
-#: inc/class-plugin.php:31 admin/templates/plugin.phtml:10
+#: admin/controller/class-admin-controller-adlist.php:16
+#: admin/controller/class-admin-controller-new.php:16
 msgid "Amazon Partnernet"
+msgstr "Amazon Partnernet"
+
+#: admin/controller/class-admin-controller-adlist.php:17
+#: inc/class-plugin.php:38 admin/templates/adlist.phtml:14
+msgid "Adlist"
+msgstr "Ad Liste"
+
+#: admin/controller/class-admin-controller-delete.php:41
+msgid "The ad has been successfully removed."
+msgstr "Die Anzeige wurde erfolgreich entfernt."
+
+#: admin/controller/class-admin-controller-new.php:17
+#: admin/templates/adlist.phtml:15
+msgid "Create new"
+msgstr "Neu erstellen"
+
+#: admin/controller/class-admin-controller-new.php:39
+msgid "The ad has been fetched from amazon."
+msgstr "Die Anzeige wurde von amazon abgerufen."
+
+#: admin/form/class-admin-form-adlist.php:25
+msgid "There has been no link transmitted."
+msgstr "Es wurde kein Link übertragen."
+
+#: admin/form/class-admin-form-adlist.php:33
+msgid "There has been no refresh_after_hours transmitted."
+msgstr "Es wurde kein refresh_after_hours übermittelt."
+
+#: admin/form/class-admin-form-adlist.php:41
+msgid "The Link seems to be no valid URL."
+msgstr "Der Link scheint keine gültige URL zu sein."
+
+#: admin/form/class-admin-form-adlist.php:49
+msgid "The given Refresh after Hours is not of the right type."
 msgstr ""
+"Die angegebene Aktualisierung nach Stunden ist nicht vom richtigen Typ."
 
-#: inc/class-plugin.php:32 admin/templates/plugin.phtml:24
-msgid "Configuration"
-msgstr "Konfiguration"
-
-#: admin/templates/config.phtml:17
-msgid "Sumedia"
+#: admin/form/class-admin-form-new.php:15
+msgid "The form could not be verified, please try again"
 msgstr ""
+"Das Formular konnte nicht verifiziert werden, bitte versuchen Sie es erneut"
 
-#: admin/templates/config.phtml:18 admin/templates/config.phtml:22
-msgid "Amazon Partnernet Links"
-msgstr ""
+#: admin/form/class-admin-form-new.php:20
+#: admin/form/class-admin-form-new.php:30
+#, php-format
+msgid "Missing parameter: %s."
+msgstr "Fehler Parameter: %s."
 
-#: admin/templates/config.phtml:23
-msgid "Create Link"
-msgstr "Link erstellen"
+#: admin/form/class-admin-form-new.php:25
+msgid "The given Amazon URL seems not to be valid."
+msgstr "Die angegebene Amazon-URL scheint ungültig zu sein."
 
-#: admin/templates/config.phtml:49
+#: admin/form/class-admin-form-new.php:35
+msgid "Invalid Refresh Hour"
+msgstr "Ungültige Aktualisierungsstunden"
+
+#: admin/table/class-admin-table-adlist.php:11
+msgid "ID"
+msgstr "ID"
+
+#: admin/table/class-admin-table-adlist.php:12
+msgid "WordPress Code"
+msgstr "WordPress Code"
+
+#: admin/table/class-admin-table-adlist.php:13
+msgid "Unique ID"
+msgstr "Unique ID"
+
+#: admin/table/class-admin-table-adlist.php:14 admin/templates/new.phtml:16
+msgid "Link"
+msgstr "Link"
+
+#: admin/table/class-admin-table-adlist.php:15 admin/templates/new.phtml:24
 msgid "Refresh after hours"
 msgstr "Reparse nach Stunden"
 
-#: admin/templates/config.phtml:52
+#: admin/table/class-admin-table-adlist.php:16
+msgid "Hours since last parse"
+msgstr "Stunden seit letztem Parsing"
+
+#: admin/table/class-admin-table-adlist.php:55
+msgid "Open link (none tracking)"
+msgstr "Öffne Link (ohne Tracking)"
+
+#: admin/table/class-admin-table-adlist.php:77
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/templates/adlist.phtml:19
+msgid "Search"
+msgstr "Suche"
+
+#: admin/templates/new.phtml:27
 msgid "hours"
 msgstr "Stunden"
 
-#: admin/templates/config.phtml:58
+#: admin/templates/new.phtml:33
 msgid "Save and parse"
 msgstr "Speichern und parsen"
 
-#: admin/templates/plugin.phtml:16
+#: admin/templates/plugin.phtml:12
+#, fuzzy
+#| msgid ""
+#| "As Amazon Partnernet is a data privacy issue and explicitly tracks the "
+#| "visitor this plugin\n"
+#| "                will provide a smart way to solve the advertisment on "
+#| "your page using Partnernet."
 msgid ""
 "As Amazon Partnernet is a data privacy issue and explicitly tracks the "
 "visitor this plugin\n"
-"                will provide a smart way to solve the advertisment on your "
-"page using Partnernet."
+"        will provide a smart way to solve the advertisment on your page "
+"using Partnernet."
 msgstr ""
 "Das Amazon Partnernet stellt Bild, Text und Preisinformationen nur als "
 "IFRAME zur Verfügung, was eine Frage des Datenschutzes ist.\n"
@@ -103,7 +148,7 @@ msgstr "Werbung"
 
 #: templates/shortcode.phtml:18
 msgid "Amazon"
-msgstr ""
+msgstr "Amazon"
 
 #: templates/shortcode.phtml:37 templates/shortcode.phtml:38
 msgid "Buy"
@@ -111,11 +156,11 @@ msgstr "Kaufen"
 
 #. Plugin Name of the plugin/theme
 msgid "sumedia-amapn"
-msgstr ""
+msgstr "sumedia-amapn"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/sumedia-wordpress/amapn"
-msgstr ""
+msgstr "https://github.com/sumedia-wordpress/amapn"
 
 #. Description of the plugin/theme
 msgid "Use Amazon Partnernet Links with non-tracking data privacy"
@@ -123,11 +168,17 @@ msgstr "Verwende Amazon Partnernet ohne Tracking"
 
 #. Author of the plugin/theme
 msgid "Sven Ullmann"
-msgstr ""
+msgstr "Sven Ullmann"
 
 #. Author URI of the plugin/theme
 msgid "https://www.sumedia-webdesign.de"
-msgstr ""
+msgstr "https://www.sumedia-webdesign.de"
+
+#~ msgid "Refresh<br />after hours"
+#~ msgstr "Reparse<br />nach Stunden"
+
+#~ msgid "Configuration"
+#~ msgstr "Konfiguration"
 
 #~ msgid ""
 #~ "In order to use Sumedia Plugins you need to install Sumedia Base Plugin "
