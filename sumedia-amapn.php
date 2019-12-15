@@ -8,10 +8,10 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License, version 3 or higher
  *
  * @wordpress-plugin
- * Plugin Name: sumedia-amapn
+ * Plugin Name: Sumedia Amapn
  * Plugin URI:  https://github.com/sumedia-wordpress/amapn
  * Description: Use Amazon Partnernet Links with non-tracking data privacy
- * Version:     0.2.0
+ * Version:     0.2.1
  * Requires at least: 5.3 (nothing else tested yet)
  * Requires PHP: 5.6.0 (not tested, could work)
  * Author:      Sven Ullmann
@@ -49,7 +49,7 @@ require_once(__DIR__ . DIRECTORY_SEPARATOR . 'sumedia-base.php');
 
 if (defined('SUMEDIA_BASE_VERSION')) {
 
-    define('SUMEDIA_AMAPN_VERSION', '0.2.0');
+    define('SUMEDIA_AMAPN_VERSION', '0.2.1');
     define('SUMEDIA_AMAPN_PLUGIN_NAME', dirname(plugin_basename(__FILE__)));
 
     $autoloader = Sumedia_Base_Autoloader::get_instance();

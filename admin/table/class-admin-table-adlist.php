@@ -58,7 +58,7 @@ class Sumedia_Amapn_Admin_Table_Adlist extends WP_List_Table
         $uniqueid = $item['uniqueid'];
         $content = '[sumedia_amapn_link id="' . $uniqueid . '"]';
 
-        $parser = new Sumedia_Amapn_Linkparser();
+        $parser = Sumedia_Base_Registry::get('Sumedia_Amapn_Linkparser');
         $data = $parser->get_template_data($item['link']);
 
         $content .= '<div class="suma-amapn-linklist-preview">';

@@ -14,7 +14,7 @@ class Sumedia_Amapn_Admin_Controller_Delete extends Sumedia_Base_Controller
             return;
         }
 
-        $links = Sumedia_Amapn_Repository_Links::get_instance();
+        $links = Sumedia_Base_Registry::get('Sumedia_Amapn_Repository_Links');
         foreach ($_POST['ids'] as $id) {
             if(!is_numeric($id)) {
                 continue;

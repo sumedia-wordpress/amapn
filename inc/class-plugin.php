@@ -29,7 +29,7 @@ class Sumedia_Amapn_Plugin
 
     public function plugin_view()
     {
-        $plugins = Sumedia_Base_Registry_View::get('Sumedia_Base_Admin_View_Plugins');
+        $plugins = Sumedia_Base_Registry::get('Sumedia_Base_Admin_View_Plugins');
         $plugins->add_plugin(SUMEDIA_AMAPN_PLUGIN_NAME, [
             'name' => 'Amazon Partnernet',
             'version' => SUMEDIA_AMAPN_VERSION,
@@ -53,11 +53,11 @@ class Sumedia_Amapn_Plugin
             if ($_GET['page'] == 'sumedia' && $_GET['plugin'] == SUMEDIA_AMAPN_PLUGIN_NAME)
             {
                 if ($_GET['action'] == 'adlist') {
-                    $controller = Sumedia_Amapn_Admin_Controller_Adlist::get_instance();
+                    $controller = Sumedia_Base_Registry::get('Sumedia_Amapn_Admin_Controller_Adlist');
                 } elseif($_GET['action'] == 'new') {
-                    $controller = Sumedia_Amapn_Admin_Controller_New::get_instance();
+                    $controller = Sumedia_Base_Registry::get('Sumedia_Amapn_Admin_Controller_New');
                 } elseif(isset($_POST['action']) && $_POST['action'] == 'delete') {
-                    $controller = Sumedia_Amapn_Admin_Controller_Delete::get_instance();
+                    $controller = Sumedia_Base_Registry::get('Sumedia_Amapn_Admin_Controller_Delete');
                 }
 
                 if (isset($controller)) {
@@ -85,7 +85,7 @@ class Sumedia_Amapn_Plugin
         add_shortcode( 'sumedia_amapn_link', function($attrs){
             $data = shortcode_atts(array('id' => ''), $attrs);
             if ($data['id']) {
-                $shortcode = Sumedia_Base_Registry_View::get('Sumedia_Amapn_View_Shortcode');
+                $shortcode = Sumedia_Base_Registry::get('Sumedia_Amapn_View_Shortcode');
                 $view = $shortcode->fetch_by_uniqueid($data['id']);
                 return $view->render(true);
             }

@@ -37,10 +37,10 @@ class Sumedia_Amapn_View_Shortcode extends Sumedia_Base_View
      */
     public function fetch_by_uniqueid($uniqueid)
     {
-        $links = Sumedia_Amapn_Repository_Links::get_instance();
+        $links = Sumedia_Base_Registry::get('Sumedia_Amapn_Repository_Links');
         $link = $links->findOne('uniqueid', $uniqueid);
         if ($link) {
-            $parser = new Sumedia_Amapn_Linkparser();
+            $parser = Sumedia_Base_Registry::get('Sumedia_Amapn_Linkparser');
             if ($parser->is_refresh_time($uniqueid)) {
                 $parser->parse($link['link']);
             }

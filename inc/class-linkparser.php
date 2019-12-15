@@ -128,7 +128,7 @@ class Sumedia_Amapn_Linkparser
         curl_setopt($curl, CURLOPT_HTTPGET, 1);
         curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($curl, CURLOPT_REFERER, '');
-        curl_setopt($curl, CURLOPT_COOKIEJAR, 'cookie.txt');
+        curl_setopt($curl, CURLOPT_COOKIEJAR, $this->cache_dir . '/cookie.txt');
         $content = curl_exec($curl);
 
         $content_file = $this->get_page_content_filepath($uniqueid);

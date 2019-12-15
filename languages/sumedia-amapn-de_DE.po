@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sumedia-amapn\n"
-"POT-Creation-Date: 2019-12-14 15:36+0100\n"
-"PO-Revision-Date: 2019-12-14 15:38+0100\n"
+"POT-Creation-Date: 2019-12-15 15:05+0100\n"
+"PO-Revision-Date: 2019-12-15 15:05+0100\n"
 "Last-Translator: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language-Team: Sven Ullmann <kontakt@sumedia-webdesign.de>\n"
 "Language: de_DE\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
 #: admin/controller/class-admin-controller-adlist.php:16
-#: admin/controller/class-admin-controller-new.php:16
+#: admin/controller/class-admin-controller-new.php:11
 msgid "Amazon Partnernet"
 msgstr "Amazon Partnernet"
 
@@ -32,32 +32,41 @@ msgstr "Amazon Partnernet"
 msgid "Adlist"
 msgstr "Ad Liste"
 
+#: admin/controller/class-admin-controller-adlist.php:21
+#: admin/controller/class-admin-controller-new.php:16
+msgid "Back to the plugin overview"
+msgstr "Zurück zur Plugin Übersicht"
+
 #: admin/controller/class-admin-controller-delete.php:41
 msgid "The ad has been successfully removed."
 msgstr "Die Anzeige wurde erfolgreich entfernt."
 
-#: admin/controller/class-admin-controller-new.php:17
+#: admin/controller/class-admin-controller-new.php:12 inc/class-plugin.php:42
 #: admin/templates/adlist.phtml:15
 msgid "Create new"
 msgstr "Neu erstellen"
 
-#: admin/controller/class-admin-controller-new.php:39
+#: admin/controller/class-admin-controller-new.php:20
+msgid "Back to the adlist"
+msgstr "Zurück zur Anzeigenliste"
+
+#: admin/controller/class-admin-controller-new.php:44
 msgid "The ad has been fetched from amazon."
 msgstr "Die Anzeige wurde von amazon abgerufen."
 
-#: admin/form/class-admin-form-adlist.php:25
+#: admin/form/class-admin-form-adlist.php:27
 msgid "There has been no link transmitted."
 msgstr "Es wurde kein Link übertragen."
 
-#: admin/form/class-admin-form-adlist.php:33
+#: admin/form/class-admin-form-adlist.php:32
 msgid "There has been no refresh_after_hours transmitted."
 msgstr "Es wurde kein refresh_after_hours übermittelt."
 
-#: admin/form/class-admin-form-adlist.php:41
+#: admin/form/class-admin-form-adlist.php:37
 msgid "The Link seems to be no valid URL."
 msgstr "Der Link scheint keine gültige URL zu sein."
 
-#: admin/form/class-admin-form-adlist.php:49
+#: admin/form/class-admin-form-adlist.php:42
 msgid "The given Refresh after Hours is not of the right type."
 msgstr ""
 "Die angegebene Aktualisierung nach Stunden ist nicht vom richtigen Typ."
@@ -89,27 +98,23 @@ msgstr "ID"
 msgid "WordPress Code"
 msgstr "WordPress Code"
 
-#: admin/table/class-admin-table-adlist.php:13
-msgid "Unique ID"
-msgstr "Unique ID"
-
-#: admin/table/class-admin-table-adlist.php:14 admin/templates/new.phtml:16
+#: admin/table/class-admin-table-adlist.php:13 admin/templates/new.phtml:16
 msgid "Link"
 msgstr "Link"
 
-#: admin/table/class-admin-table-adlist.php:15 admin/templates/new.phtml:24
+#: admin/table/class-admin-table-adlist.php:14 admin/templates/new.phtml:24
 msgid "Refresh after hours"
 msgstr "Reparse nach Stunden"
 
-#: admin/table/class-admin-table-adlist.php:16
+#: admin/table/class-admin-table-adlist.php:15
 msgid "Hours since last parse"
 msgstr "Stunden seit letztem Parsing"
 
-#: admin/table/class-admin-table-adlist.php:55
+#: admin/table/class-admin-table-adlist.php:53
 msgid "Open link (none tracking)"
 msgstr "Öffne Link (ohne Tracking)"
 
-#: admin/table/class-admin-table-adlist.php:77
+#: admin/table/class-admin-table-adlist.php:75
 msgid "Delete"
 msgstr "Löschen"
 
@@ -142,21 +147,25 @@ msgstr ""
 "IFRAME zur Verfügung, was eine Frage des Datenschutzes ist.\n"
 "Dieses Plugin bietet einen smarten Weg um dieses Problem zu lösen."
 
-#: templates/shortcode.phtml:15
+#: templates/shortcode.phtml:13
 msgid "Advertisment"
 msgstr "Werbung"
 
-#: templates/shortcode.phtml:18
+#: templates/shortcode.phtml:16
 msgid "Amazon"
 msgstr "Amazon"
 
-#: templates/shortcode.phtml:37 templates/shortcode.phtml:38
+#: templates/shortcode.phtml:35
 msgid "Buy"
 msgstr "Kaufen"
 
+#: templates/shortcode.phtml:36
+msgid "Details"
+msgstr "Details"
+
 #. Plugin Name of the plugin/theme
-msgid "sumedia-amapn"
-msgstr "sumedia-amapn"
+msgid "Sumedia Amapn"
+msgstr "Sumedia Amapn"
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/sumedia-wordpress/amapn"
@@ -173,6 +182,9 @@ msgstr "Sven Ullmann"
 #. Author URI of the plugin/theme
 msgid "https://www.sumedia-webdesign.de"
 msgstr "https://www.sumedia-webdesign.de"
+
+#~ msgid "Unique ID"
+#~ msgstr "Unique ID"
 
 #~ msgid "Refresh<br />after hours"
 #~ msgstr "Reparse<br />nach Stunden"
